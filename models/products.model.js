@@ -15,12 +15,12 @@ const schemaProduct = new Schema({
   price: {
     type: Number,
   },
-  images: {
+  images:  {
     type: String,
   },
-  supplier: {
+  user: {
       type: Schema.ObjectId,
-      ref: 'Supplier'
+      ref: 'User'
   }
 });
 module.exports = mongoose.model('Product', schemaProduct);

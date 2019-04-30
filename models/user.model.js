@@ -37,6 +37,9 @@ var UserSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	role: {
+		type: String
+	},
 	email: {
 		type: String,
 		trim: true,
@@ -65,7 +68,7 @@ var UserSchema = new Schema({
  */
 
 UserSchema.pre('save', function(next) {
-	if (this.password && this.password.length > 6) {
+	if (this.password) {
 		this.salt =  Math.random() + '';;
 		this.password = this.hashPassword(this.password);
 	}
